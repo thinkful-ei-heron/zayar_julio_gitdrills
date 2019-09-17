@@ -8,20 +8,20 @@ function jediName(firstName, lastName) {
 console.log(jediName('Beyonce','Knowles'));
 
 function beyond(num){
-    switch(num){
-        case isFinite(num) : 
-            console.log('and beyond');
-            break;
-        case isFinite(num) && num > 0 : 
-            console.log('To Infinity');
-            break;
-        case isFinite(num) && num < 0 : 
-            console.log('To negative infinity');
-            break;
-        case num == 0 : 
-            console.log('Staying home.');
-            break;
+    if (num == 0) {
+        return 'Staying home';
     }
+    if (isFinite(num)) {
+        if (num > 0) {
+            return 'To infinity';
+        }
+        if (num < 0) {
+            return 'To negative infinity';
+        }
+    } else {
+        return 'And beyond';
+    }
+
 }
 console.log(beyond(100));
 
@@ -49,17 +49,12 @@ function decode(messege){
 }
 console.log(decode('craft block argon meter bells brown croon droop'))
 
-function whatever(month,leapYear) {
+function daysInMonth(month,leapYear) {
+    let result;
     switch(month){
         case('April'):
-            result = `${month} has 30 days`;
-            break;
         case('September'):
-            result = `${month} has 30 days`;
-            break;
         case('June'):
-            result = `${month} has 30 days`;
-            break;
         case('November'):
             result = `${month} has 30 days`;
             break;
@@ -72,28 +67,20 @@ function whatever(month,leapYear) {
             }
             break;
         case('January'):
-            result = `${month} has 31 days`;
-            break;
         case('March'):
-            result = `${month} has 31 days`;
-            break;
         case('May'):
-            result = `${month} has 31 days`;
-            break;
         case('July'):
-            result = `${month} has 31 days`;
-            break;
         case('August'):
-            result = `${month} has 31 days`;
-            break;
         case('December'):
             result = `${month} has 31 days`;
             break;
         default :
             throw new Error('Must provide a valid month.');
-            break;
     }
+    return result;
 }
+console.log(daysInMonth('September', true));
+
 
 function game(number){
     const randomNo = Math.floor(Math.random() * 3) + 1;
@@ -135,3 +122,4 @@ function game(number){
         }
     }
 }
+console.log(game(2));
